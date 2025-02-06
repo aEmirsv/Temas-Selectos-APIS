@@ -22,13 +22,17 @@ function entre_res(){
 }
 
 boton2.addEventListener('click', entre_res2);
-
 function entre_res2(){
 
-    // fetch("https://fakerapi.it/api/v2/users?_quantity=10&_gender=female")
-    // .then(res=> res.json())
-    // .then(response=>{
-    //     console.log(response)
-    // })
+    // respuesta1.textContent = "Estoy dentro";
+    // respuesta1.innerHTML = "<h2>Esto es inserción de <code>html</code></h2>";
+
+    fetch("https://fakerapi.it/api/v2/places?_quantity=1")
+    .then((res)=> res.json())
+    .then((response)=>{
+        // console.log(response)
+        respuesta2.textContent  = response.data.map((places)=> `Latitud:${places.latitude}  Longiutd:${places.longitude}`);
+        // console.log(tpl)
+    })
 
 }
